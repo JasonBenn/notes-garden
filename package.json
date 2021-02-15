@@ -1,0 +1,20 @@
+{
+  "name": "notes-garden",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "gatsby build",
+    "start": "gatsby develop",
+    "clean": "gatsby clean"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gatsby": "^2.32.3",
+    "gatsby-theme-andy": "^0.2.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
