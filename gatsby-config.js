@@ -1,4 +1,4 @@
 module.exports = {
   plugins: ["gatsby-theme-andy", 'gatsby-plugin-cname'],
-  siteMetadata: {"title": "Jason Benn's notes on community building"}
+  siteMetadata: {"title": "Jason Benn's notes on community building", "siteUrl": "notes.jasonbenn.com"}
 };
