@@ -1,0 +1,1 @@
+*/1 * * * * /bin/bash /home/flock/notes-garden/scripts/update_contents.sh >> /var/log/cron.log 2>&1
