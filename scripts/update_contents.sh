@@ -1,5 +1,5 @@
 python scripts/clean.py
-if ! git diff-index --quiet HEAD --; then
+if [ -n "$(git status --porcelain)" ]; then
   git add .
   git commit -m "Updated notes"
   git push &> /dev/null
