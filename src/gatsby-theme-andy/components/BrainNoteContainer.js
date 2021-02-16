@@ -56,7 +56,7 @@ const NoteWrapper = ({ children, slug, title, overlay, obstructed, highlighted, 
           >
             <LinkToStacked
               to={slug}
-              sx={{ fontWeight: 'bold', textDecoration: 'none', color: 'text' }}
+              style={{ fontWeight: '600', textDecoration: 'none', color: 'inherit', letterSpacing: "0.03em" }}
             >
               {title || slug}
             </LinkToStacked>
