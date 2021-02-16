@@ -2,6 +2,7 @@ import re
 import shutil
 from glob import glob
 from typing import List
+from typing import Set
 
 
 def prepend_title(contents: List[str]) -> List[str]:
@@ -26,7 +27,18 @@ def add_title_metadata(contents: List[str], title: str) -> List[str]:
 
 
 def clean_links(contents: List[str]) -> List[str]:
-    return [re.sub("\[\[pub/(.*)\]\]", "[[\g<1>]]", x) for x in contents]
+    new_contents = []
+
+    def replace_link(match):
+        title = match.group(1)
+        if not title.startswith("pub/"):
+            return "[[Note not published]]"
+        return "[[" + re.sub("pub/", "", title) + "]]"
+
+    for line in contents:
+        new_line = re.sub("\[\[(.*)\]\]", replace_link, line)
+        new_contents.append(new_line)
+    return new_contents
 
 
 def flatten(t):
@@ -38,7 +50,7 @@ def add_paragraph_spacing(contents: List[str]) -> List[str]:
 
 
 def get_title(filepath: str) -> str:
-    return filepath.split("/")[-1].rstrip(".md")
+    return re.sub(".md$", "", filepath.split("/")[-1])
 
 
 def get_filename(title: str) -> str:
@@ -48,7 +60,8 @@ def get_filename(title: str) -> str:
 
 
 def main():
-    # shutil.copytree("/Users/jasonbenn/Downloads/Roam-Export-1613438766737/pub", "staging", dirs_exist_ok=True)
+    shutil.rmtree("staging")
+    shutil.copytree("/Users/jasonbenn/Downloads/Roam-Export-1613438766737/pub", "staging")
     for filepath in glob("staging/*"):
         contents = open(filepath).read().split("\n")
         contents = remove_attributes(contents)

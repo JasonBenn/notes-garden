@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'gatsby';
-import {Box, Styled} from 'theme-ui';
+import {Box} from 'theme-ui';
 
 export default ({ siteMetadata }) => (
   <header>
