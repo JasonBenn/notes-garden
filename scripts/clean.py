@@ -2,11 +2,7 @@ import re
 import shutil
 from glob import glob
 from typing import List
-from typing import Set
-
-
-def prepend_title(contents: List[str]) -> List[str]:
-    return contents
+import platform
 
 
 def remove_attributes(contents: List[str]) -> List[str]:
@@ -61,7 +57,8 @@ def get_filename(title: str) -> str:
 
 def main():
     shutil.rmtree("staging")
-    shutil.copytree("/Users/jasonbenn/Downloads/Roam-Export-1613438766737/pub", "staging")
+    notes_path = "/home/flock/roam-notes/markdown/pub" if platform.system() == "Linux" else "/Users/jasonbenn/Downloads/Roam-Export-1613438766737/pub"
+    shutil.copytree(notes_path, "staging")
     for filepath in glob("staging/*"):
         contents = open(filepath).read().split("\n")
         contents = remove_attributes(contents)
