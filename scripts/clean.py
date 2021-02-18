@@ -29,7 +29,7 @@ def clean_links(contents: List[str]) -> List[str]:
     def replace_link(match):
         title = match.group(1)
         if not title.startswith("pub/"):
-            return "[[Note not published]]"
+            return "[[" + re.sub("pub/", "", title + ' (not published)') + "]]"
         return "[[" + re.sub("pub/", "", title) + "]]"
 
     for line in contents:
