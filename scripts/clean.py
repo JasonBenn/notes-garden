@@ -64,7 +64,12 @@ def get_filename(title: str) -> str:
 
 
 ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-ROAM_NOTES_DIR = "/home/flock/roam-notes" if platform.system() == "Linux" else "/Users/jasonbenn/code/roam-notes"
+if platform.system() == "Linux":
+    ROAM_NOTES_DIR = "/home/flock/roam-notes"
+    NOTES_GARDEN_DIR = "/home/flock/notes-garden"
+else:
+    ROAM_NOTES_DIR = "/Users/jasonbenn/code/roam-notes"
+    NOTES_GARDEN_DIR = "/Users/jasonbenn/code/notes-garden"
 
 
 def main():
@@ -85,7 +90,7 @@ def main():
         title = get_title(filepath)
         contents = add_title_metadata(contents, title)
         filename = get_filename(title)
-        open(f"content/{filename}.md", "w").write("\n".join(contents))
+        open(f"{NOTES_GARDEN_DIR}/content/{filename}.md", "w").write("\n".join(contents))
 
 
 if __name__ == "__main__":
