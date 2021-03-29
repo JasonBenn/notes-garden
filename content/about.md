@@ -10,19 +10,16 @@ Themes include...
 
 - narratives that (hopefully) resonate with people,
 
-- open questions,
+- [[What I'm currently thinking about]],
 
-- [[What I'm currently thinking about (not published)]],
-
-- [[Inspiring Cohousing Communities (not published)]],
+- [[Inspiring Cohousing Communities]],
 
 - what I've learned from living at [the Archive](https://archive.house) and interviewing dozens of community leaders,
 
 - the roadmap to building a cohousing community ([[The Road to Archive Cohousing]]),
 
-- [[Ways to help (not published)]]
+- [[Ways to help]]
 
 - and big dreams about the long-term future.
 
-See also: [[Frequently asked questions]]
-    
+See also: [[Index of pages]].
